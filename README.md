@@ -1,0 +1,1 @@
+# RIO: rede interna objectos
