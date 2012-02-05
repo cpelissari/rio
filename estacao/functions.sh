@@ -7,10 +7,32 @@
 scp_copy() {
 
   file=$1
-  dest=$2
+  host=$2
+  prefix=$3
+  dest="$prefix$file"
+
+  echo "Copiando '$file' para '$host:$dest'"
+  cat $file | ssh $host "cat > $dest"
+
+}
+
+ssh_mount() {
+
+  host=$1
+  device=$2
+  dir=$3
+  prefix=$4
+
+  ssh $host "mkdir -p $prefix$dir && mount -t nfs $device $prefix$dir"
+
+}
+
+ssh_umount() {
+
+  host=$1
+  dir=$2
   prefix=$3
 
-  echo "Copiando '$file' para '$dest'"
-  cat $file | ssh $dest "sudo sh -c \"cat > $prefix$file\""
+  ssh $host "umount $prefix$dir"
 
 }

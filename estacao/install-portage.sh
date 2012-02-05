@@ -1,32 +1,27 @@
 #!/bin/bash
-ESTACAO=$1
+. functions.sh
 
-ARQs=""
-ARQs="$ARQs /etc/make.conf"
-ARQs="$ARQs /etc/conf.d/hwclock"
-ARQs="$ARQs /etc/conf.d/keymaps"
-ARQs="$ARQs /etc/portage/package.keywords"
-ARQs="$ARQs /etc/portage/package.mask"
-ARQs="$ARQs /etc/portage/package.use"
+estacao=$1
+files=`cat etc/portage-files | grep -v ^#`
 
-for ARQ in $ARQs
+for f in $files
 do
-   echo "Copiando '$ARQ'"
-   cat $ARQ | ssh $ESTACAO "sudo sh -c \"cat > $ARQ\""
+  scp_copy $f $estacao "/mnt/gentoo"
 done
 
-echo "Atualizando /var/lib/portage/world"
-cat /var/lib/portage/world | ssh $ESTACAO "sudo sh -c \"cat > /var/lib/portage/world\""
+#echo "Atualizando /var/lib/portage/world"
+#cat /var/lib/portage/world | ssh $ESTACAO "sudo sh -c \"cat > /var/lib/portage/world\""
 # comm -3 /var/lib/portage/world world.estacao.remove | ssh $ESTACAO "sudo sh -c \"cat > /var/lib/portage/world\""
 
-echo "Chamando eix-sync"
-ssh $ESTACAO "sudo sh -c \"eix-sync\""
-
 echo "Montando /mnt/portage/packages"
-ssh $ESTACAO "sudo sh -c \"/etc/init.d/netmount start\""
+ssh_mount "$estacao" "servidor010.rio.objectos.com.br:/srv/portage/distfiles" "/mnt/portage/distfiles" "/mnt/gentoo"
+ssh_mount "$estacao" "servidor010.rio.objectos.com.br:/srv/portage/packages/estacao" "/mnt/portage/packages" "/mnt/gentoo"
 
-echo "Emerging"
-ssh $ESTACAO "sudo sh -c \"emerge -ukDN world && emerge --depclean && revdep-rebuild\""
+echo "Copiando script install-portage-chroot.sh"
+scp install-portage-chroot.sh $estacao:/
+scp install-portage-make.sh $estacao:/mnt/gentoo
 
-echo "(Des)montando /mnt/portage/packages"
-ssh $ESTACAO "sudo sh -c \"/etc/init.d/netmount stop\""
+echo "Para continuar o processo:"
+echo "# ssh $estacao"
+echo "# /install-portage-chroot.sh"
+echo "# ./install-portage-make.sh"
