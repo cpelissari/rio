@@ -1,0 +1,9 @@
+# Arquivos de configuração portage
+# Um arquivo por linha
+/etc/locale.gen
+/etc/make.conf
+/etc/conf.d/hwclock
+/etc/conf.d/keymaps
+/etc/portage/package.keywords
+/etc/portage/package.mask
+/etc/portage/package.use
