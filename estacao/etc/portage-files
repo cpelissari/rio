@@ -7,3 +7,4 @@
 /etc/portage/package.keywords
 /etc/portage/package.mask
 /etc/portage/package.use
+/var/lib/portage/world
