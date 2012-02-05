@@ -1,0 +1,5 @@
+# minimal-instal.iso
+*.iso
+
+# stage3 tarballs
+stage3*
