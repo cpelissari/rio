@@ -13,23 +13,17 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.command.kdo;
+package br.com.objectos.rio;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import com.google.inject.BindingAnnotation;
+import com.google.inject.AbstractModule;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@BindingAnnotation
-@Target({
-    ElementType.FIELD,
-    ElementType.PARAMETER,
-    ElementType.METHOD })
-@Retention(RUNTIME)
-public @interface Kdo {}
+public class RioTestModule extends AbstractModule {
+
+  @Override
+  protected void configure() {
+  }
+
+}

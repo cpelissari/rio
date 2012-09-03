@@ -13,29 +13,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.command.help;
-
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import br.com.objectos.comuns.cli.CommandKey;
-
-import com.google.inject.BindingAnnotation;
+package br.com.objectos.rio.kdo.model;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@BindingAnnotation
-@Target({
-    ElementType.FIELD,
-    ElementType.PARAMETER,
-    ElementType.METHOD })
-@Retention(RUNTIME)
-public @interface Help {
-
-  CommandKey WEB = new CommandKey("help", "web");
+public class KdoModel {
 
 }

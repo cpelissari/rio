@@ -13,36 +13,17 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.command;
-
-import java.lang.annotation.Annotation;
-
-import br.com.objectos.comuns.cli.AbstractMainCommand;
-import br.com.objectos.rio.command.help.Help;
-
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+package br.com.objectos.rio.kdo;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-class HelpCommand extends AbstractMainCommand {
+public class KdoCommandException extends RuntimeException {
 
-  static final String NAME = "help";
+  private static final long serialVersionUID = 1L;
 
-  @Inject
-  public HelpCommand(Injector injector) {
-    super(injector);
-  }
-
-  @Override
-  public Class<? extends Annotation> getAnnotation() {
-    return Help.class;
-  }
-
-  @Override
-  public String getName() {
-    return NAME;
+  public KdoCommandException(Throwable cause) {
+    super(cause);
   }
 
 }

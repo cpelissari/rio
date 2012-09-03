@@ -13,30 +13,29 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.command;
+package br.com.objectos.rio.help;
 
-import br.com.objectos.comuns.cli.AbstractCliModule;
-import br.com.objectos.comuns.cli.MainCommand;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import com.google.inject.multibindings.MapBinder;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import br.com.objectos.comuns.cli.CommandKey;
+
+import com.google.inject.BindingAnnotation;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioCliModule extends AbstractCliModule {
+@BindingAnnotation
+@Target({
+    ElementType.FIELD,
+    ElementType.PARAMETER,
+    ElementType.METHOD })
+@Retention(RUNTIME)
+public @interface Help {
 
-  @Override
-  protected String getDefaultMainCommand() {
-    return HelpCommand.NAME;
-  }
-
-  @Override
-  protected void bindMainCommands(MapBinder<String, MainCommand> commands) {
-    commands.addBinding(HelpCommand.NAME).to(HelpCommand.class);
-  }
-
-  @Override
-  protected void installCommands() {
-  }
+  CommandKey WEB = new CommandKey("help", "web");
 
 }
