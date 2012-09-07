@@ -15,35 +15,34 @@
  */
 package br.com.objectos.rio;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.lang.annotation.Annotation;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Files;
-import com.google.common.io.Resources;
+import br.com.objectos.comuns.cli.AbstractMainCommand;
+import br.com.objectos.rio.help.Help;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class Fakes {
+class HelpCommand extends AbstractMainCommand {
 
-  private Fakes() {
+  static final String NAME = "help";
+
+  @Inject
+  public HelpCommand(Injector injector) {
+    super(injector);
   }
 
-  public static File cleanFile(String path) {
-    File file = new File(path);
-    file.delete();
-    return file;
+  @Override
+  public Class<? extends Annotation> getAnnotation() {
+    return Help.class;
   }
 
-  public static String readLines(String filename) throws IOException {
-    URL url = Resources.getResource(Fakes.class, filename);
-    return Resources.toString(url, Charsets.UTF_8);
-  }
-
-  public static String readLines(File file) throws IOException {
-    return Files.toString(file, Charsets.UTF_8);
+  @Override
+  public String getName() {
+    return NAME;
   }
 
 }

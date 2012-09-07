@@ -15,35 +15,28 @@
  */
 package br.com.objectos.rio;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import br.com.objectos.comuns.cli.AbstractCliModule;
+import br.com.objectos.comuns.cli.MainCommand;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Files;
-import com.google.common.io.Resources;
+import com.google.inject.multibindings.MapBinder;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class Fakes {
+public class RioCliModule extends AbstractCliModule {
 
-  private Fakes() {
+  @Override
+  protected String getDefaultMainCommand() {
+    return HelpCommand.NAME;
   }
 
-  public static File cleanFile(String path) {
-    File file = new File(path);
-    file.delete();
-    return file;
+  @Override
+  protected void bindMainCommands(MapBinder<String, MainCommand> commands) {
+    commands.addBinding(HelpCommand.NAME).to(HelpCommand.class);
   }
 
-  public static String readLines(String filename) throws IOException {
-    URL url = Resources.getResource(Fakes.class, filename);
-    return Resources.toString(url, Charsets.UTF_8);
-  }
-
-  public static String readLines(File file) throws IOException {
-    return Files.toString(file, Charsets.UTF_8);
+  @Override
+  protected void installCommands() {
   }
 
 }
