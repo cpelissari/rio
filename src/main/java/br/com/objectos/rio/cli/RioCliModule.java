@@ -13,36 +13,31 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.cli;
 
-import java.lang.annotation.Annotation;
+import br.com.objectos.comuns.cli.AbstractCliModule;
+import br.com.objectos.comuns.cli.MainCommand;
 
-import br.com.objectos.comuns.cli.AbstractMainCommand;
-import br.com.objectos.rio.help.Help;
-
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import com.google.inject.multibindings.MapBinder;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-class HelpCommand extends AbstractMainCommand {
+public class RioCliModule extends AbstractCliModule {
 
-  static final String NAME = "help";
-
-  @Inject
-  public HelpCommand(Injector injector) {
-    super(injector);
+  @Override
+  protected String getDefaultMainCommand() {
+    return HelpCommand.NAME;
   }
 
   @Override
-  public Class<? extends Annotation> getAnnotation() {
-    return Help.class;
+  protected void bindMainCommands(MapBinder<String, MainCommand> commands) {
+    commands.addBinding(HelpCommand.NAME).to(HelpCommand.class);
+    commands.addBinding(KdoCommand.NAME).to(KdoCommand.class);
   }
 
   @Override
-  public String getName() {
-    return NAME;
+  protected void installCommands() {
   }
 
 }

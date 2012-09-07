@@ -1,10 +1,10 @@
 /*
- * KdoFileCommandEclipse.java criado em 05/09/2012
+ * KdoDotFilesCommandGit.java criado em 05/09/2012
  * 
  * Propriedade de Objectos Fábrica de Software LTDA.
  * Reprodução parcial ou total proibida.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import com.google.common.io.Resources;
 /**
  * @author marcos.piazzolla@objectos.com.br (Marcos Piazzolla)
  */
-public class KdoDotFilesCommandEclipse {
+class KdoDotFilesCommandGit {
 
   public void execute(Global global) {
     try {
@@ -42,10 +42,9 @@ public class KdoDotFilesCommandEclipse {
     Dir userHome = dirs.getUserHome();
 
     BaseDirFileFilter filter = new BaseDirFileFilter(userHome.getFile());
-    String path = "/templates/kdo/eclipse";
 
     Templates
-        .foundAtBaseDir(templateBaseDir(path))
+        .foundAtBaseDir(templateBaseDir("/templates/kdo/git"))
         .filterFilesWith(filter)
         .withModel(global)
         .build()

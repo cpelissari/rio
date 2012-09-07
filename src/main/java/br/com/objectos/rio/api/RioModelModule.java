@@ -13,18 +13,27 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.api;
 
-import com.google.inject.AbstractModule;
+import br.com.objectos.comuns.etc.AbstractEtcModule;
+import br.com.objectos.comuns.etc.model.Dir;
+import br.com.objectos.rio.api.model.Workstation;
+import br.com.objectos.rio.api.model.Workstations;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class RioModelModule extends AbstractEtcModule {
 
   @Override
-  protected void configure() {
-    install(new RioModule());
+  protected void configureEtc() {
+    etc(Configuration.class);
+    etc(Dev.class);
+    etc(Devs.class);
+    etc(Dir.class);
+    etc(Dirs.class);
+    etc(Workstation.class);
+    etc(Workstations.class);
   }
 
 }

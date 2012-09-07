@@ -13,30 +13,30 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.api;
 
-import br.com.objectos.comuns.cli.AbstractCliModule;
-import br.com.objectos.comuns.cli.MainCommand;
-
-import com.google.inject.multibindings.MapBinder;
+import java.util.List;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioCliModule extends AbstractCliModule {
+public class Devs {
 
-  @Override
-  protected String getDefaultMainCommand() {
-    return HelpCommand.NAME;
+  private List<Dev> devs;
+
+  public Devs() {
   }
 
-  @Override
-  protected void bindMainCommands(MapBinder<String, MainCommand> commands) {
-    commands.addBinding(HelpCommand.NAME).to(HelpCommand.class);
+  public Devs(List<Dev> devs) {
+    this.devs = devs;
   }
 
-  @Override
-  protected void installCommands() {
+  public List<Dev> getDevs() {
+    return devs;
+  }
+
+  public void setDevs(List<Dev> devs) {
+    this.devs = devs;
   }
 
 }

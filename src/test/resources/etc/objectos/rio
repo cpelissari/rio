@@ -1,0 +1,5 @@
+dirs:
+  data:
+    path: /var/lib/objectos/rio
+  output:
+    path: /var/lib/objectos/rio/target

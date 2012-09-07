@@ -13,18 +13,41 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.model;
 
-import com.google.inject.AbstractModule;
+import br.com.objectos.rio.api.model.Workstation;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class FakeWorkstationBuilder implements Workstation.Builder {
+
+  private String ip;
+  private String name;
 
   @Override
-  protected void configure() {
-    install(new RioModule());
+  public Workstation build() {
+    return new Workstation(this);
+  }
+
+  public FakeWorkstationBuilder ip(String ip) {
+    this.ip = ip;
+    return this;
+  }
+
+  public FakeWorkstationBuilder name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  @Override
+  public String getIp() {
+    return ip;
+  }
+
+  @Override
+  public String getName() {
+    return name;
   }
 
 }

@@ -13,17 +13,23 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import com.google.inject.BindingAnnotation;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class KdoCommandException extends RuntimeException {
-
-  private static final long serialVersionUID = 1L;
-
-  public KdoCommandException(Throwable cause) {
-    super(cause);
-  }
-
-}
+@BindingAnnotation
+@Target({
+    ElementType.FIELD,
+    ElementType.PARAMETER,
+    ElementType.METHOD })
+@Retention(RUNTIME)
+public @interface Kdo {}

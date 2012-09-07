@@ -13,18 +13,38 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.api;
 
-import com.google.inject.AbstractModule;
+import br.com.objectos.comuns.etc.model.Dir;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class Dirs {
 
-  @Override
-  protected void configure() {
-    install(new RioModule());
+  public static interface Builder extends br.com.objectos.comuns.base.Builder<Dirs> {
+
+    Dir getData();
+
+    Dir getOutput();
+
+  }
+
+  private final Dir data;
+
+  private final Dir output;
+
+  private Dirs(Builder builder) {
+    data = builder.getData();
+    output = builder.getOutput();
+  }
+
+  public Dir getData() {
+    return data;
+  }
+
+  public Dir getOutput() {
+    return output;
   }
 
 }

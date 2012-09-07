@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
 
 import static br.com.objectos.comuns.etc.EtcFiles.readAllLines;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,6 +34,7 @@ import br.com.objectos.comuns.etc.model.Dirs;
 import br.com.objectos.comuns.etc.model.FakeGlobals;
 import br.com.objectos.comuns.etc.model.Global;
 import br.com.objectos.rio.RioTestModule;
+import br.com.objectos.rio.cli.kdo.KdoDotFilesCommandGit;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
@@ -43,7 +44,7 @@ import br.com.objectos.rio.RioTestModule;
 public class KdoDotFilesCommandGitTest {
 
   @Inject
-  private KdoDotFileCommandGit command;
+  private KdoDotFilesCommandGit command;
 
   private Global global;
   private Dirs dirs;

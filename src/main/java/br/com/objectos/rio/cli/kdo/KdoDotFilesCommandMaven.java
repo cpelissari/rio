@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
 
 import java.io.File;
 import java.io.IOException;

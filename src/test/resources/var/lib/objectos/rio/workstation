@@ -1,0 +1,7 @@
+workstations:
+- ip: 10.0.0.101
+  name: estacao001
+- ip: 10.0.0.102
+  name: estacao002
+- ip: 10.0.0.103
+  name: estacao003

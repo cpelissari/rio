@@ -4,7 +4,7 @@
  * Propriedade de Objectos Fábrica de Software LTDA.
  * Reprodução parcial ou total proibida.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
 
 import static br.com.objectos.comuns.etc.EtcFiles.readAllLines;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -36,7 +36,7 @@ import com.google.common.io.Resources;
  */
 @Test
 @Guice(modules = { RioTestModule.class })
-public class KdoDotFileEscapeCharacterTest {
+public class KdoDotFilesEscapeCharacterTest {
 
   private Global global;
   private Dirs dirs;
@@ -58,13 +58,13 @@ public class KdoDotFileEscapeCharacterTest {
     BaseDirFileFilter filter = new BaseDirFileFilter(userHome);
 
     Templates
-        .foundAtBaseDir(templateBaseDir("/fake_templates/escape/error"))
+        .foundAtBaseDir(templateBaseDir("/fake-templates/escape/error"))
         .filterFilesWith(filter)
         .withModel(global)
         .build()
         .parseAll();
 
-    assertThat(readAllLines("/fake_templates/escape/expected"), equalTo(readAllLines(userHome)));
+    assertThat(readAllLines("/fake-templates/escape/expected"), equalTo(readAllLines(userHome)));
   }
 
   public void command_should_use_escape_character() throws IOException,
@@ -76,7 +76,7 @@ public class KdoDotFileEscapeCharacterTest {
 
     parse();
 
-    assertThat(readAllLines("/fake_templates/escape/expected"), equalTo(readAllLines(userHome)));
+    assertThat(readAllLines("/fake-templates/escape/expected"), equalTo(readAllLines(userHome)));
   }
 
   private void parse() throws URISyntaxException {
@@ -86,7 +86,7 @@ public class KdoDotFileEscapeCharacterTest {
     BaseDirFileFilter filter = new BaseDirFileFilter(userHome);
 
     Templates
-        .foundAtBaseDir(templateBaseDir("/fake_templates/escape/correct"))
+        .foundAtBaseDir(templateBaseDir("/fake-templates/escape/correct"))
         .filterFilesWith(filter)
         .withModel(global)
         .build()

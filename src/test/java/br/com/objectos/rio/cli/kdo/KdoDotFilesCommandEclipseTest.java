@@ -4,7 +4,7 @@
  * Propriedade de Objectos Fábrica de Software LTDA.
  * Reprodução parcial ou total proibida.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.cli.kdo;
 
 import static br.com.objectos.comuns.etc.EtcFiles.readAllLines;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,6 +26,7 @@ import br.com.objectos.comuns.etc.model.Dirs;
 import br.com.objectos.comuns.etc.model.FakeGlobals;
 import br.com.objectos.comuns.etc.model.Global;
 import br.com.objectos.rio.RioTestModule;
+import br.com.objectos.rio.cli.kdo.KdoDotFilesCommandEclipse;
 
 /**
  * @author marcos.piazzolla@objectos.com.br (Marcos Piazzolla)

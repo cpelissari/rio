@@ -15,16 +15,20 @@
  */
 package br.com.objectos.rio;
 
+import br.com.objectos.rio.api.RioModelModule;
+import br.com.objectos.rio.cli.RioCliModule;
+
 import com.google.inject.AbstractModule;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class RioModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    install(new RioModule());
+    install(new RioCliModule());
+    install(new RioModelModule());
   }
 
 }

@@ -1,0 +1,29 @@
+devs:
+- uid: 1000
+  login: dev-a
+  groups:
+  - cdrom
+  - cdrw
+  - usb
+  - wheel
+  name: Developer A
+  email: dev-a@objectos.com.br
+  active: true
+- uid: 1001
+  login: dev-b
+  groups:
+  - cdrom
+  - cdrw
+  - usb
+  name: Developer B
+  email: dev-b@objectos.com.br
+  active: true
+- uid: 1002
+  login: dev-c
+  groups:
+  - cdrom
+  - cdrw
+  - usb
+  name: Developer C
+  email: dev-c@objectos.com.br
+  active: false

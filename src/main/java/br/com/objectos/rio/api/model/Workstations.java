@@ -13,29 +13,30 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.help;
+package br.com.objectos.rio.api.model;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import br.com.objectos.comuns.cli.CommandKey;
-
-import com.google.inject.BindingAnnotation;
+import java.util.List;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@BindingAnnotation
-@Target({
-    ElementType.FIELD,
-    ElementType.PARAMETER,
-    ElementType.METHOD })
-@Retention(RUNTIME)
-public @interface Help {
+public class Workstations {
 
-  CommandKey WEB = new CommandKey("help", "web");
+  private List<Workstation> workstations;
+
+  public Workstations() {
+  }
+
+  public Workstations(List<Workstation> workstations) {
+    this.workstations = workstations;
+  }
+
+  public List<Workstation> getWorkstations() {
+    return workstations;
+  }
+
+  public void setWorkstations(List<Workstation> workstations) {
+    this.workstations = workstations;
+  }
 
 }

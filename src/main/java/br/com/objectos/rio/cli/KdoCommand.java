@@ -13,18 +13,36 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.cli;
 
-import com.google.inject.AbstractModule;
+import java.lang.annotation.Annotation;
+
+import br.com.objectos.comuns.cli.AbstractMainCommand;
+import br.com.objectos.rio.cli.kdo.Kdo;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class KdoCommand extends AbstractMainCommand {
+
+  static final String NAME = "kdo";
+
+  @Inject
+  public KdoCommand(Injector injector) {
+    super(injector);
+  }
 
   @Override
-  protected void configure() {
-    install(new RioModule());
+  public Class<? extends Annotation> getAnnotation() {
+    return Kdo.class;
+  }
+
+  @Override
+  public String getName() {
+    return NAME;
   }
 
 }

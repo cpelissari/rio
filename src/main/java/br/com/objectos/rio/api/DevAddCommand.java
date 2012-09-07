@@ -13,11 +13,24 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo.model;
+package br.com.objectos.rio.api;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class KdoModel {
+public class DevAddCommand extends RioCommand<Dev> {
+
+  private final Dev dev;
+
+  public DevAddCommand(Configuration config,
+                       Dev dev) {
+    super(config);
+    this.dev = dev;
+  }
+
+  @Override
+  protected Dev tryToCall() throws Exception {
+    return dev;
+  }
 
 }

@@ -13,18 +13,22 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio;
+package br.com.objectos.rio.api;
 
-import com.google.inject.AbstractModule;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioTestModule extends AbstractModule {
+public class Rio {
 
-  @Override
-  protected void configure() {
-    install(new RioModule());
+  private final Configuration config;
+
+  public Rio(Configuration config) {
+    this.config = config;
+  }
+
+  public DevCommand dev() {
+    return new DevCommand(config);
   }
 
 }
