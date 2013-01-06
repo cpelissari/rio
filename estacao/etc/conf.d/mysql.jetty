@@ -1,0 +1,7 @@
+MY_CNF="/etc/mysql/my.jetty.cnf"
+MY_ARGS=""
+STARTUP_TIMEOUT="900"
+STARTUP_EARLY_TIMEOUT="1000"
+STOP_TIMEOUT=120
+[ "${SVCNAME}" != mysql ] && rc_provide="!mysql"
+return 0

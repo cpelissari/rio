@@ -1,0 +1,33 @@
+
+[Print Settings]
+print-at=now
+cups-job-priority=50
+cups-Resolution=300dpi
+cups-job-sheets=none,none
+media-type=Plain
+cups-MediaType=Plain
+printer=HP_Deskjet_3050_J610_series
+cover-after=none
+print-at-time=
+default-source=Main
+cups-InputSlot=Main
+cups-number-up=1
+cover-before=none
+cups-ColorModel=KGray
+format-for-printer=deskjet640c
+resolution=300
+evince-print-setting-page-scale=1
+cups-OutputMode=FastDraft
+evince-print-setting-page-autorotate=true
+evince-print-setting-page-size=false
+
+[Page Setup]
+PPDName=A4
+DisplayName=A4
+Width=210
+Height=297
+MarginTop=6.3499999999999996
+MarginBottom=14.224
+MarginLeft=6.3499999999999996
+MarginRight=6.3499999999999996
+Orientation=portrait

@@ -1,0 +1,74 @@
+#!/bin/bash
+version="kepler-20130630"
+server="http://rio.objectos.com.br/eclipse"
+f_eclipse="eclipse-java-kepler-R-linux-gtk-x86_64.tar.gz"
+f_testng="testng-6.8.6.20130607_0745.tar.gz"
+f_m2e="m2eclipse-1.4.0.20130601-0317.tar.gz"
+work="/tmp/eclipse"
+target="$HOME/kdo/eclipse"
+
+preconditions() {
+  if [ ! -f $HOME/.rio ]; then
+    echo "Arquivo de configuração ~/.rio não encontrado!"
+    echo "Crie um arquivo ~/.rio com o conteúdo (notar as aspas):"
+    echo "EMAIL=\"seu-email@objectos.com.br\""
+    echo "NOME=\"Seu nome\""
+    exit 1 
+  fi
+  source $HOME/.rio
+  echo "email=$EMAIL"
+  echo "nome=$NOME"
+}
+
+workdir_prepare() {
+  echo "[INFO] Criando diretório de trabalho"
+  rm -rf $work
+  mkdir -p $work/wget
+  mkdir -p $work/tmp
+}
+
+download() {
+  echo "[INFO] Baixando arquivos"
+  
+  for f in $f_eclipse $f_testng $f_m2e
+  do
+    wget -P $work/wget $server/$f
+  done
+}
+
+unpack() {
+  local user=`whoami`
+
+  echo "[INFO] Descompactando"
+  tar xzvf $work/wget/$f_eclipse -C $work/tmp
+  tar xzvf $work/wget/$f_testng -C $work/tmp/eclipse/dropins
+  tar xzvf $work/wget/$f_m2e -C $work/tmp/eclipse/dropins
+  echo "[INFO] Corrige permissões"
+  chown -R $user. $work/tmp
+}
+
+move() {
+  echo "[INFO] Movendo arquivos"
+  rm -rf $target
+  mv $work/tmp/eclipse $target 
+}
+
+config() {
+  echo "[INFO] Arquivos de config"
+  cp -a home $work
+
+  home=$(echo "$HOME" | sed 's/\//\\\//g')
+
+  find $work/home -type f -exec sed -i "s/{{home}}/$home/g" {} \;
+  find $work/home -type f -exec sed -i "s/{{email}}/$EMAIL/g" {} \;
+  find $work/home -type f -exec sed -i "s/{{nome}}/$NOME/g" {} \;
+
+  tar cf - -C $work/home . | tar xvf - -C $HOME
+}
+
+preconditions
+workdir_prepare
+download
+unpack
+move
+config

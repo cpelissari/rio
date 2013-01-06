@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eclipse 4.2 
+Type=Application
+Comment=Eclipse Tools Platform
+Exec=/opt/kdo/eclipse/eclipse
+TryExec=/opt/kdo/eclipse/eclipse
+Icon=/op/kdo/eclipse/icon.xpm
+Categories=Development;

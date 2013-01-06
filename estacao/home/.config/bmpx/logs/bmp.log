@@ -1,0 +1,28 @@
+2007-04-14 13:02:52 BMP: Logging started for [BMP] at [2007-04-14 13:02:52], PID[19650]
+2007-04-14 13:02:52 BMP: Unable to parse configuration file
+2007-04-14 13:02:53 BMP: sm.cc:286: Unable to open SM connection: networkIdsList argument is NULL
+2007-04-14 13:02:53 BMP: Running: CServiceCore (DBus:org.beepmediaplayer.bmp)
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mp3.so'
+2007-04-14 13:02:53 BMP:      >> Registered mp3
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.so'
+2007-04-14 13:02:53 BMP:      >> Registered mpc
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so'
+2007-04-14 13:02:53 BMP:      >> Registered ogg
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so'
+2007-04-14 13:02:53 BMP:      >> Registered flac
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so'
+2007-04-14 13:02:53 BMP:      >> Registered wma
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_rmff.so'
+2007-04-14 13:02:53 BMP: (II) Taglib plugin load SUCCESS '/usr/lib/bmpx/plugins/taglib/libtaglib_plugin_audible.so'
+2007-04-14 13:02:53 BMP: Transport plugin 'file' loaded.
+2007-04-14 13:02:53 BMP: Transport plugin 'http' loaded.
+2007-04-14 13:02:53 BMP: Container plugin 'PLS Playlist' loaded
+2007-04-14 13:02:53 BMP: Container plugin 'Query Parser' loaded
+2007-04-14 13:02:53 BMP: Container plugin 'XSPF Playlist' loaded
+2007-04-14 13:02:53 BMP: Container plugin 'Folder Container Plugin' loaded
+2007-04-14 13:02:53 BMP: Container plugin 'M3U Playlist' loaded
+2007-04-14 13:02:53 BMP: Container plugin 'MLQ Playlist' loaded
+2007-04-14 13:02:53 BMP: Running: Monitor
+2007-04-14 13:02:53 BMP: Starting UI
+2007-04-14 14:03:11 BMP: Saving LQM to /home/endo/.config/bmpx/lastfm.lqm
+2007-04-14 14:03:11 BMP: Saved 204 characters
