@@ -5,5 +5,5 @@ Type=Application
 Comment=Eclipse Tools Platform
 Exec={{home}}/kdo/eclipse/eclipse
 TryExec={{home}}/kdo/eclipse/eclipse
-Icon={{home}}/kdo/eclipse/icon.xpm
+Icon={{home}}/kdo/eclipse/icon.png
 Categories=Development;
