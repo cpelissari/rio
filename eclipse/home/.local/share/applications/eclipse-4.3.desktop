@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eclipse 4.3 
+Type=Application
+Comment=Eclipse Tools Platform
+Exec={{home}}/kdo/eclipse/eclipse
+TryExec={{home}}/kdo/eclipse/eclipse
+Icon={{home}}/kdo/eclipse/icon.xpm
+Categories=Development;

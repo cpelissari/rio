@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=Terminal
+Name[pt_BR]=Terminal
+Comment=Terminal Emulator
+Comment[pt_BR]=Emulador de Terminal
+GenericName=Terminal Emulator
+GenericName[pt_BR]=Emulador de Terminal
+Exec=Terminal
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=GTK;System;TerminalEmulator;Utility;
+StartupNotify=true
+X-XFCE-Source=file:///usr/share/applications/Terminal.desktop

@@ -1,0 +1,6 @@
+layout=0
+date_font=Lucida Grande 8
+time_font=Luxi Mono 8
+date_format=%A, %d %B %Y
+time_format=%H:%M:%S
+
