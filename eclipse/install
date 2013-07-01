@@ -1,11 +1,14 @@
 #!/bin/bash
 version="kepler-20130630"
-server="http://rio.objectos.com.br/eclipse"
-f_eclipse="eclipse-java-kepler-R-linux-gtk-x86_64.tar.gz"
+server="http://localhost/eclipse"
+f_eclipse="eclipse-kdo-kepler-R-linux-gtk-x86_64.tar.gz"
 f_testng="testng-6.8.6.20130607_0745.tar.gz"
-f_m2e="m2eclipse-1.4.0.20130601-0317.tar.gz"
+f_jdk="openjdk-6-src-b27-26_oct_2012.tar.gz"
+downloads="$f_eclipse $f_testng $f_jdk"
 work="/tmp/eclipse"
-target="$HOME/kdo/eclipse"
+kdo="$HOME/kdo"
+jdk6="$kdo/jdk6"
+target="$kdo/eclipse"
 
 preconditions() {
   if [ ! -f $HOME/.rio ]; then
@@ -30,7 +33,7 @@ workdir_prepare() {
 download() {
   echo "[INFO] Baixando arquivos"
   
-  for f in $f_eclipse $f_testng $f_m2e
+  for f in $downloads 
   do
     wget -P $work/wget $server/$f
   done
@@ -42,7 +45,11 @@ unpack() {
   echo "[INFO] Descompactando"
   tar xzvf $work/wget/$f_eclipse -C $work/tmp
   tar xzvf $work/wget/$f_testng -C $work/tmp/eclipse/dropins
-  tar xzvf $work/wget/$f_m2e -C $work/tmp/eclipse/dropins
+
+  echo "[INFO] Código fonte JDK (LER CÓDIGOS!!!)"
+  mkdir $work/tmp/jdk6
+  tar xzvf $work/wget/$f_jdk -C $work/tmp/jdk6
+
   echo "[INFO] Corrige permissões"
   chown -R $user. $work/tmp
 }
@@ -50,7 +57,9 @@ unpack() {
 move() {
   echo "[INFO] Movendo arquivos"
   rm -rf $target
-  mv $work/tmp/eclipse $target 
+  mv $work/tmp/eclipse $target
+  rm -rf $jdk6
+  mv $work/tmp/jdk6/jdk/src/share/classes $jdk6
 }
 
 config() {
