@@ -1,7 +1,8 @@
 #!/bin/bash
-version="kepler-20130703"
+version="juno-downgrade-20130704"
 server="http://rio.objectos.com.br/eclipse"
-f_eclipse="eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz"
+f_eclipse="eclipse-jee+m2e-juno-SR2-linux-gtk-x86_64.tar.gz"
+#f_eclipse="eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz"
 f_testng="testng-6.8.6.20130607_0745.tar.gz"
 f_jdk="openjdk-6-src-b27-26_oct_2012.tar.gz"
 downloads="$f_eclipse $f_testng $f_jdk"
