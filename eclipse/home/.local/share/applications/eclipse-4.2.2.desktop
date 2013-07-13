@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Eclipse 4.2.2 
+Name=Eclipse 4.2.2 (Juno SR2) 
 Type=Application
 Comment=Eclipse Tools Platform
 Exec={{home}}/kdo/eclipse/eclipse

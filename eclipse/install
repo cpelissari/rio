@@ -1,11 +1,11 @@
 #!/bin/bash
-version="juno-downgrade-20130704"
+#version="juno-downgrade-20130704"
+#version="kepler-jee-nodropins-20130713"
+version="kepler-juno-nodropins-20130713"
 server="http://rio.objectos.com.br/eclipse"
-f_eclipse="eclipse-jee+m2e-juno-SR2-linux-gtk-x86_64.tar.gz"
-#f_eclipse="eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz"
-f_testng="testng-6.8.6.20130607_0745.tar.gz"
+f_eclipse="eclipse-kdo-juno-SR2-linux-gtk-x86_64.tar.gz"
 f_jdk="openjdk-6-src-b27-26_oct_2012.tar.gz"
-downloads="$f_eclipse $f_testng $f_jdk"
+downloads="$f_eclipse $f_jdk"
 work="/tmp/eclipse"
 kdo="$HOME/kdo"
 jdk6="$kdo/jdk6"
@@ -32,11 +32,11 @@ workdir_prepare() {
 }
 
 download() {
-  echo "[INFO] Baixando arquivos"
+  echo "[INFO] Baixando arquivos. Aguarde..."
   
   for f in $downloads 
   do
-    wget -P $work/wget $server/$f
+    wget -nv -P $work/wget $server/$f
   done
 }
 
@@ -44,12 +44,11 @@ unpack() {
   local user=`whoami`
 
   echo "[INFO] Descompactando"
-  tar xzvf $work/wget/$f_eclipse -C $work/tmp
-  tar xzvf $work/wget/$f_testng -C $work/tmp/eclipse/dropins
+  tar xzf $work/wget/$f_eclipse -C $work/tmp
 
   echo "[INFO] Código fonte JDK (LER CÓDIGOS!!!)"
   mkdir $work/tmp/jdk6
-  tar xzvf $work/wget/$f_jdk -C $work/tmp/jdk6
+  tar xzf $work/wget/$f_jdk -C $work/tmp/jdk6
 
   echo "[INFO] Corrige permissões"
   chown -R $user. $work/tmp
@@ -73,7 +72,7 @@ config() {
   find $work/home -type f -exec sed -i "s/{{email}}/$EMAIL/g" {} \;
   find $work/home -type f -exec sed -i "s/{{nome}}/$NOME/g" {} \;
 
-  tar cf - -C $work/home . | tar xvf - -C $HOME
+  tar cf - -C $work/home . | tar xf - -C $HOME
 }
 
 preconditions
@@ -82,3 +81,6 @@ download
 unpack
 move
 config
+
+echo "[INFO] Eclipse instalado."
+echo "[INFO] Siga com a configuração em https://github.com/objectos/rio/wiki/Eclipse"
