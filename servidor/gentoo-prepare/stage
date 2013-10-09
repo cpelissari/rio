@@ -2,7 +2,7 @@
 
 echo "Downloading stage tarball"
 cd /mnt/gentoo
-wget http://rio.objectos.com.br/gentoo/servidor-20130709.tar.bz2
+wget http://rio.objectos.com.br/gentoo/servidor-20130802.tar.bz2
 
 echo "Extracting"
 tar xjpf servidor-*.tar.bz2
