@@ -9,7 +9,7 @@ downloads="$f_eclipse $f_jdk"
 work="/tmp/eclipse"
 kdo="$HOME/kdo"
 jdk6="$kdo/jdk6"
-target="$kdo/eclipse"
+target="$tmp/eclipse"
 
 preconditions() {
   if [ ! -f $HOME/.rio ]; then
