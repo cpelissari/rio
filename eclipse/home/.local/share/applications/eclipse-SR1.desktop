@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eclipse SR1 (Kepler SR1)
+Type=Application
+Comment=Eclipse Tools Platform
+Exec={{home}}/kdo/teste/eclipse
+TryExec={{home}}/kdo/teste/eclipse
+Icon={{home}}/kdo/eclipse/icon.png
+Categories=Development;
