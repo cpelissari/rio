@@ -3,7 +3,7 @@
 #version="kepler-jee-nodropins-20130713"
 version="kepler-juno-nodropins-20130713"
 server="http://localhost"
-f_eclipse="eclipse-kdo-juno-SR2-linux-gtk-x86_64.tar.gz"
+f_eclipse="eclipse-kdo-kepler-SR1-linux-gtk-x86_64.tar.gz"
 f_jdk="openjdk-6-src-b27-26_oct_2012.tar.gz"
 downloads="$f_eclipse $f_jdk"
 work="/tmp/eclipse"
