@@ -7,9 +7,9 @@ f_eclipse="eclipse-jee-kepler-SR1-linux-gtk-x86_64.tar.gz"
 f_jdk="openjdk-6-src-b27-26_oct_2012.tar.gz" 
 downloads="$f_eclipse $f_jdk"
 work="/tmp/eclipse"
-kdo="$HOME/kdo"
-jdk6="$kdo/jdk6"
-target="$kdo/eclipse"
+testes="$HOME/Documentos/testes"
+jdk6="$testes/jdk6"
+target="$testes/eclipse"
 
 preconditions() {
   if [ ! -f $HOME/.rio ]; then
