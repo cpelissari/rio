@@ -2,8 +2,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.objectos</groupId>
-		<artifactId>objectos-comuns-parent</artifactId>
-		<version>2.0.24</version>
+		<artifactId>parent</artifactId>
+		<version>1.0</version>
 	</parent>
 	<scm>
 		<connection>scm:git:git@github.com:objectos/objectos-rio.git</connection>
@@ -83,8 +83,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>br.com.objectos</groupId>
-			<artifactId>objectos-comuns-base</artifactId>
-			<version>${objectos.comuns.base.version}</version>
+			<artifactId>way-base</artifactId>
+			<version>${br.com.objectos.way-base.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>br.com.objectos</groupId>
