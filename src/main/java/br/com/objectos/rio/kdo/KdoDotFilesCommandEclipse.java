@@ -42,10 +42,9 @@ public class KdoDotFilesCommandEclipse {
     Dir userHome = dirs.getUserHome();
 
     BaseDirFileFilter filter = new BaseDirFileFilter(userHome.getFile());
-    String path = "/templates/kdo/eclipse";
 
     Templates
-        .foundAtBaseDir(templateBaseDir(path))
+        .foundAtBaseDir(templateBaseDir("/templates/kdo/eclipse"))
         .filterFilesWith(filter)
         .withModel(global)
         .build()
