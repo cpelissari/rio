@@ -51,14 +51,12 @@ public class KdoDotFilesCommandEclipseTest {
 
     EtcFiles.rm_rf(userHome);
 
-    String proof = readAllLines("/kdo/eclipse");
-
     command.execute(global);
 
     String res = readAllLines(userHome);
 
     assertThat(res, not(equalTo("[]")));
-    assertThat(res, equalTo(proof));
+    assertThat(res, equalTo("/kdo/eclipse"));
   }
 
 }
