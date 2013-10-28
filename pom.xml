@@ -91,7 +91,7 @@
 		<dependency>
 			<groupId>br.com.objectos</groupId>
 			<artifactId>way-base</artifactId>
-			<version>${br.com.objectos.way-base.version}</version>
+			<version>${objectos.way.base.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>br.com.objectos</groupId>
