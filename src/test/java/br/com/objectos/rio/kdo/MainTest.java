@@ -1,5 +1,3 @@
-package br.com.objectos.rio.kdo;
-
 /*
  * Copyright 2013 Objectos, Fábrica de Software LTDA.
  *
@@ -15,49 +13,15 @@ package br.com.objectos.rio.kdo;
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
-import org.testng.annotations.Test;
+package br.com.objectos.rio.kdo;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-
-@Test
 public class MainTest {
 
   public static void main(String[] args) {
-    System.out.println("Teste");
-  }
-  /*
-  private Executor executor;
-
-  private String executedCommand;
-  
-  @BeforeMethod
-  public void reset() {
-    executedCommand = null;
+    System.out.println("teste");
   }
 
-  public void should_execute_args_command() {
-
-    String command = "git";
-
-    executor.execute("rio", "kdo", "dots", "--", command);
-    assertThat(executedCommand, equalTo(command));
-  }
-
-  private class FakeMainCommand extends EmptyMainCommand {
-
-      private final String command;
-
-      public FakeMainCommand(String command) {
-        this.command = command;
-      }
-
-      @Override
-      public void execute(Args args) {
-        executedCommand = command;
-      }
-
-    }*/
 }
