@@ -42,6 +42,6 @@ public class KdoCommandModule extends AbstractCommandModule {
 
   @Override
   protected void bindCommands(MapBinder<CommandKey, Command> commands) {
-    commands.addBinding(Kdo.INIT);
+    commands.addBinding(Kdo.INIT).to(implementation);
   }
 }

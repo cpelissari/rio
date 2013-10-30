@@ -15,11 +15,7 @@
  */
 package br.com.objectos.rio;
 
-import java.util.List;
-
 import br.com.objectos.comuns.cli.Options;
-import br.com.objectos.way.command.web.WebInitOptions.ProjectBuilder;
-import br.com.objectos.way.model.Project;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -27,31 +23,35 @@ import com.beust.jcommander.Parameters;
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@Parameters(separators = " ")
+// parâmetros serão separados por --
+@Parameters(separators = " --")
 public class KdoInitOptions implements Options {
-  @Parameter(names = "--group")
-  public String group = "br.com.objectos";
+  // define todas as opções de parâmetro
 
-  @Parameter(names = "--name")
-  public String name = "New project";
+  // é possível cria opções com um objeto Options: Ex: options.addOption("d",
 
-  @Parameter(names = "--short-name")
-  public String shortName = "project";
+  // Leia mais em: Efetuando parse de opções de linha de comando em Java
+  // http:www.devmedia.com.br/efetuando-parse-de-opcoes-de-linha-de-comando-em-java/26933#ixzz2jE6mzrfm
 
-  @Parameter
-  public List<String> directory = newArrayList();
+  @Parameter(names = "--git")
+  private final String optionGit = "classpath"; // classpath ou direcionar para
+                                                // a classe KdoGit/?????
 
-  public String getDirectory() {
-    if (directory.isEmpty()) {
-      directory.add(".");
-    }
-    return directory.get(0);
-  }
+  @Parameter(names = "--maven")
+  private final String optionMaven = "New project";
 
-  public Project toProject() {
-    return new ProjectBuilder().build();
-  }
+  @Parameter(names = "--eclipse")
+  private final String optionEclipse = "project";
 
-  private class ProjectBuilder implements Project.Builder {
+  // criar métodos que recebam a "classpath"????
+
+  /*  private class ConvertClass implements IStringConverterFactory {
+
+      @Override
+      public <T> Class<? extends IStringConverter<T>> getConverter(Class<T> forType) {
+        return null;
+      }
+
+    }*/
 
 }

@@ -15,9 +15,11 @@
  */
 package br.com.objectos.rio;
 
+import br.com.objectos.comuns.cli.AbstractCommand;
+
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-class KdoInitCommand {
+class KdoInitCommand extends AbstractCommand<KdoInitOptions> {
 
 }
