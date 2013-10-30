@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Objectos, Fábrica de Software LTDA.
+ * Copyright 2013 Objectos, Fábrica de Software LTDA.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,28 +13,23 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio.help;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import br.com.objectos.comuns.cli.CommandKey;
-
-import com.google.inject.BindingAnnotation;
+import br.com.objectos.comuns.cli.Args;
+import br.com.objectos.comuns.cli.Command;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@BindingAnnotation
-@Target({
-    ElementType.FIELD,
-    ElementType.PARAMETER,
-    ElementType.METHOD })
-@Retention(RUNTIME)
-public @interface Kdo {
+class HelpWebCommand implements Command {
 
-  CommandKey INIT = new CommandKey("kdo", "init");
+  @Override
+  public String getName() {
+    return Help.WEB.getName();
+  }
+
+  @Override
+  public void execute(Args args) {
+  }
+
 }

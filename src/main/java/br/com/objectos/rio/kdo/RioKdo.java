@@ -23,7 +23,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 /**
- * @author marcio.endo@objectos.com.br (Marcio Endo)
+ * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 public class RioKdo {
 

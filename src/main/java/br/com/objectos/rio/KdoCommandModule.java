@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Objectos, Fábrica de Software LTDA.
+ * Copyright 2013 Objectos, Fábrica de Software LTDA.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,33 +15,33 @@
  */
 package br.com.objectos.rio;
 
-import br.com.objectos.comuns.cli.AbstractCliModule;
-import br.com.objectos.comuns.cli.MainCommand;
-import br.com.objectos.rio.help.HelpCommandModule;
-import br.com.objectos.rio.kdo.KdoCommand;
+import java.lang.annotation.Annotation;
+
+import br.com.objectos.comuns.cli.AbstractCommandModule;
+import br.com.objectos.comuns.cli.Command;
+import br.com.objectos.comuns.cli.CommandKey;
+import br.com.objectos.rio.help.Help;
+import br.com.objectos.rio.kdo.Kdo;
 
 import com.google.inject.multibindings.MapBinder;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-public class RioCliModule extends AbstractCliModule {
+public class KdoCommandModule extends AbstractCommandModule {
 
   @Override
-  protected String getDefaultMainCommand() {
-    return HelpCommand.NAME;
+  protected Class<? extends Annotation> getAnnotation() {
+    return Kdo.class;
   }
 
   @Override
-  protected void bindMainCommands(MapBinder<String, MainCommand> commands) {
-    commands.addBinding(HelpCommand.NAME).to(HelpCommand.class);
-    commands.addBinding(KdoCommand.NAME).to(KdoCommand.class);
-  }
-  @Override
-  protected void installCommands() {
-    // criar os módulos???
-    install(new HelpCommandModule());
-    install(new KdoCommandModule());
+  protected CommandKey getDefaultKey() {
+    return Help.WEB;
   }
 
+  @Override
+  protected void bindCommands(MapBinder<CommandKey, Command> commands) {
+    commands.addBinding(Kdo.INIT);
+  }
 }

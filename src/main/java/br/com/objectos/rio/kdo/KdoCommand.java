@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Objectos, Fábrica de Software LTDA.
+ * Copyright 2013 Objectos, Fábrica de Software LTDA.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,26 +15,32 @@
  */
 package br.com.objectos.rio.kdo;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+import br.com.objectos.comuns.cli.AbstractMainCommand;
 
-import br.com.objectos.comuns.cli.CommandKey;
-
-import com.google.inject.BindingAnnotation;
+import com.google.inject.Injector;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-@BindingAnnotation
-@Target({
-    ElementType.FIELD,
-    ElementType.PARAMETER,
-    ElementType.METHOD })
-@Retention(RUNTIME)
-public @interface Kdo {
+// deixar como defaut e colocar no package correto
+public class KdoCommand extends AbstractMainCommand {
 
-  CommandKey INIT = new CommandKey("kdo", "init");
+  public static final String NAME = "kdo";
+
+  public KdoCommand(Injector injector) {
+    super(injector);
+  }
+
+  @Override
+  public Class<? extends Annotation> getAnnotation() {
+    return Kdo.class;
+  }
+
+  @Override
+  public String getName() {
+    return NAME;
+  }
+
 }
