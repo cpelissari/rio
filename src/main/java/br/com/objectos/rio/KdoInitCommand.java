@@ -18,8 +18,22 @@ package br.com.objectos.rio;
 import br.com.objectos.comuns.cli.AbstractCommand;
 
 /**
- * @author marcio.endo@objectos.com.br (Marcio Endo)
+ * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 class KdoInitCommand extends AbstractCommand<KdoInitOptions> {
+
+  @Override
+  public String getName() {
+    return null;
+  }
+
+  @Override
+  protected void executeWithOptions(KdoInitOptions options) {
+  }
+
+  @Override
+  protected KdoInitOptions getNewOptions() {
+    return null;
+  }
 
 }
