@@ -33,25 +33,27 @@ public class KdoInitOptions implements Options {
   // Leia mais em: Efetuando parse de opções de linha de comando em Java
   // http:www.devmedia.com.br/efetuando-parse-de-opcoes-de-linha-de-comando-em-java/26933#ixzz2jE6mzrfm
 
-  @Parameter(names = "--git")
-  private final String optionGit = "classpath"; // classpath ou direcionar para
-                                                // a classe KdoGit/?????
+  @Parameter(names = "--git", required = true)
+  private final String optionGit = "new KdoDotFileCommandGit";
 
-  @Parameter(names = "--maven")
-  private final String optionMaven = "New project";
+  @Parameter(names = "--maven", required = true)
+  private final String optionMaven = "new KdoDotFileCommandMavent";
 
-  @Parameter(names = "--eclipse")
-  private final String optionEclipse = "project";
+  @Parameter(names = "--eclipse", required = true)
+  private final String optionEclipse = "new KdoDotFileCommandEclipse";
+
+  public String getOptionGit() {
+    return optionGit;
+  }
+
+  public String getOptionMaven() {
+    return optionMaven;
+  }
+
+  public String getOptionEclipse() {
+    return optionEclipse;
+  }
 
   // criar métodos que recebam a "classpath"????
-
-  /*  private class ConvertClass implements IStringConverterFactory {
-
-      @Override
-      public <T> Class<? extends IStringConverter<T>> getConverter(Class<T> forType) {
-        return null;
-      }
-
-    }*/
 
 }

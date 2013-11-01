@@ -15,43 +15,33 @@
  */
 package br.com.objectos.rio.kdo;
 
-import br.com.objectos.comuns.cli.Executor;
-import br.com.objectos.rio.RioCliModule;
-
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+import javax.inject.Inject;
 
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 public class RioKdo {
 
-  private final Executor executor;
+  private final KdoDotFileCommandGit commandGit;
+
+  private final KdoDotFilesCommandMaven commandMaven;
 
   @Inject
-  public RioKdo(Executor command) {
-    this.executor = command;
+  public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
+    this.commandGit = commandGit;
+    this.commandMaven = commandMaven;
   }
 
-  // método que será executado na classe principal
-  // Cria injeções para o módulo
-  // recebe a instância da classe com injeção de dependências pronta
-  // essa instancia chama o método run passando um array de strings como
-  // parâmetro
-  // o execute é implementado pelo ExecutorGuice que transforma o parâmetro num
-  // Arg(ImmutableList)
-  // verificar defaultMainCommandKey e o código de ExecutorGuice para criar o
-  // teste -> verificar se está vazio? help(HelpCommand)?, instanciou a classe
-  // correta?
-  public static void main(String[] args) {
-    Injector injector = Guice.createInjector(new RioCliModule());
-    RioKdo instance = injector.getInstance(RioKdo.class);
-    instance.run(args);
-  }
+  public Object CriaInstancia(String[] args) {
+    Object classe = new Object();
 
-  private void run(String[] args) {
-    executor.execute(args);
+    if (args[2] == "git") {
+      classe = new KdoDotFileCommandGit();
+    }
+    else if (args[2] == "maven") {
+      classe = new KdoDotFilesCommandMaven();
+    }
+    return classe;
   }
 
 }
