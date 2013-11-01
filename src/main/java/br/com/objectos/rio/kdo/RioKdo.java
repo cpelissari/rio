@@ -15,23 +15,22 @@
  */
 package br.com.objectos.rio.kdo;
 
-import javax.inject.Inject;
 
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 public class RioKdo {
 
-  private final KdoDotFileCommandGit commandGit;
+  /*  private final KdoDotFileCommandGit commandGit;
 
-  private final KdoDotFilesCommandMaven commandMaven;
+    private final KdoDotFilesCommandMaven commandMaven;
 
-  @Inject
-  public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
-    this.commandGit = commandGit;
-    this.commandMaven = commandMaven;
-  }
-
+    @Inject
+    public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
+      this.commandGit = commandGit;
+      this.commandMaven = commandMaven;
+    }
+  */
   public Object CriaInstancia(String[] args) {
     Object classe = new Object();
 

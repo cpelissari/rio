@@ -15,8 +15,6 @@
  */
 package br.com.objectos.rio;
 
-import br.com.objectos.comuns.cli.Options;
-
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
@@ -24,17 +22,15 @@ import com.beust.jcommander.Parameters;
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
 // parâmetros serão separados por --
-@Parameters(separators = " --")
-public class KdoInitOptions implements Options {
+@Parameters(separators = " =")
+public class KdoInitOptions {
   // define todas as opções de parâmetro
 
-  // é possível cria opções com um objeto Options: Ex: options.addOption("d",
+  @Parameter(names = "kdo rio dots", required = false)
+  private final String prefix = "rio";
 
-  // Leia mais em: Efetuando parse de opções de linha de comando em Java
-  // http:www.devmedia.com.br/efetuando-parse-de-opcoes-de-linha-de-comando-em-java/26933#ixzz2jE6mzrfm
-
-  @Parameter(names = "--git", required = true)
-  private final String optionGit = "new KdoDotFileCommandGit";
+  @Parameter(names = "--git", required = true, description = "testando")
+  private final String optionGit = "git";
 
   @Parameter(names = "--maven", required = true)
   private final String optionMaven = "new KdoDotFileCommandMavent";
@@ -52,6 +48,10 @@ public class KdoInitOptions implements Options {
 
   public String getOptionEclipse() {
     return optionEclipse;
+  }
+
+  public String getPrefix() {
+    return prefix;
   }
 
   // criar métodos que recebam a "classpath"????
