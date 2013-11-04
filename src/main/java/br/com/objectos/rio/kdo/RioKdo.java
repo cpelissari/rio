@@ -31,13 +31,20 @@ public class RioKdo {
       this.commandMaven = commandMaven;
     }
   */
-  public Object CriaInstancia(String[] args) {
+
+  public static void main(String[] args) {
+
+    Object classeretornada = CriaInstancia(args);
+    System.out.println("classe retornada com sucesso" + classeretornada);
+  }
+
+  public static Object CriaInstancia(String[] args) {
     Object classe = new Object();
 
-    if (args[2] == "git") {
+    if (args[2] == "--git") {
       classe = new KdoDotFileCommandGit();
     }
-    else if (args[2] == "maven") {
+    else if (args[2] == "--maven") {
       classe = new KdoDotFilesCommandMaven();
     }
     return classe;

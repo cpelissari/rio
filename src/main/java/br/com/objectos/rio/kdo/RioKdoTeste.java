@@ -22,16 +22,21 @@ import com.google.inject.Inject;
 @Guice(modules = { RioTestModule.class })
 public class RioKdoTeste {
 
+  private final RioKdo rioKdo;
+
   @Inject
-  private RioKdo rioKdo;
+  public RioKdoTeste(RioKdo rioKdo) {
+    this.rioKdo = rioKdo;
+  }
 
   // teste -> verificar se está vazio? help(HelpCommand)?, instanciou a classe
   // correta?
 
   public void deve_instanciar_classe_correta() {
+
     String command = "kdo";
     String arg0 = "dots";
-    String arg1 = "git";
+    String arg1 = "--git";
 
     String[] args = new String[] { command, arg0, arg1 };
 

@@ -15,12 +15,10 @@
  */
 package br.com.objectos.rio;
 
-import br.com.objectos.comuns.cli.AbstractCommand;
-
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
-class KdoInitCommand extends AbstractCommand<KdoInitOptions> {
+/*class KdoInitCommand extends AbstractCommand<KdoInitOptions> {
 
   @Override
   public String getName() {
@@ -36,4 +34,4 @@ class KdoInitCommand extends AbstractCommand<KdoInitOptions> {
     return null;
   }
 
-}
+}*/
