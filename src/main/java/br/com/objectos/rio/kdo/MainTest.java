@@ -9,9 +9,9 @@ package br.com.objectos.rio.kdo;
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
-/* 
-public class MainTest {
 
+public class MainTest {
+  /* 
   public static void main(String[] args) {
    KdoInitOptions options = new KdoInitOptions();
 
@@ -20,7 +20,7 @@ public class MainTest {
 
         jc.parse(args);
         System.out.println(jc.getMainParameterDescription());
-    
-  }
+        }
+  */
 
-}*/
+}

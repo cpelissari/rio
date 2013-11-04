@@ -15,6 +15,9 @@
  */
 package br.com.objectos.rio.kdo;
 
+import br.com.objectos.rio.KdoInitOptions;
+
+import com.beust.jcommander.JCommander;
 
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
@@ -34,17 +37,25 @@ public class RioKdo {
 
   public static void main(String[] args) {
 
+    JCommander jc = new JCommander();
+    KdoInitOptions options = new KdoInitOptions();
+    jc.addCommand("prefix", options.getPrefix());
+    // jc.addCommand("git", options.getOptionGit());
+
+    jc.parse(args[0], args[1], args[2], args[3]);
+
+    System.out.println("classe retornada com sucesso" + "Parâmetro = " + jc.getParsedCommand());
+
     Object classeretornada = CriaInstancia(args);
-    System.out.println("classe retornada com sucesso" + classeretornada);
   }
 
   public static Object CriaInstancia(String[] args) {
     Object classe = new Object();
 
-    if (args[2] == "--git") {
+    if (args[3] == "--git") {
       classe = new KdoDotFileCommandGit();
     }
-    else if (args[2] == "--maven") {
+    else if (args[3] == "--maven") {
       classe = new KdoDotFilesCommandMaven();
     }
     return classe;

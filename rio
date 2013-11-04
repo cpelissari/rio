@@ -9,4 +9,4 @@ classpath="$classpath:$m2/br/com/objectos/objectos-rio/$version/objectos-rio-$ve
 
 mvn install -Dmaven.test.skip=true
 
-java -classpath "$classpath" br.com.objectos.rio.kdo.RioKdo kdo dots --git
+java -classpath "$classpath" br.com.objectos.rio.kdo.RioKdo rio kdo dots --git 

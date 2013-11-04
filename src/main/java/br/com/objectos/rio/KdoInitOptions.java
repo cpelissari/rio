@@ -21,21 +21,19 @@ import com.beust.jcommander.Parameters;
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-// parâmetros serão separados por --
-@Parameters(separators = " =")
+@Parameters(separators = "=")
 public class KdoInitOptions {
-  // define todas as opções de parâmetro
+  // deverá ser criado separadamente??
+  @Parameter(names = "rio kdo dots", required = true)
+  private final String prefix = "kdo rio dots";
 
-  @Parameter(names = "kdo rio dots", required = false)
-  private final String prefix = "rio";
-
-  @Parameter(names = "--git", required = true, description = "testando")
+  @Parameter(names = "--git", description = "testando")
   private final String optionGit = "git";
 
-  @Parameter(names = "--maven", required = true)
+  @Parameter(names = "--maven")
   private final String optionMaven = "new KdoDotFileCommandMavent";
 
-  @Parameter(names = "--eclipse", required = true)
+  @Parameter(names = "--eclipse")
   private final String optionEclipse = "new KdoDotFileCommandEclipse";
 
   public String getOptionGit() {
