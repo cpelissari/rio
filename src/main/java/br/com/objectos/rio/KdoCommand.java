@@ -13,21 +13,21 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package br.com.objectos.rio.kdo;
+package br.com.objectos.rio;
 
 import java.lang.annotation.Annotation;
 
 import br.com.objectos.comuns.cli.AbstractMainCommand;
+import br.com.objectos.rio.kdo.Kdo;
 
 import com.google.inject.Injector;
 
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-// deixar como defaut e colocar no package correto
-public class KdoCommand extends AbstractMainCommand {
+class KdoCommand extends AbstractMainCommand {
 
-  public static final String NAME = "kdo";
+  static final String NAME = "kdo";
 
   public KdoCommand(Injector injector) {
     super(injector);

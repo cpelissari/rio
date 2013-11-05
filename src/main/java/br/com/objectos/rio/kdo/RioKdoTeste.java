@@ -41,7 +41,7 @@ public class RioKdoTeste {
     String[] args = new String[] { command, arg0, arg1 };
 
     KdoDotFileCommandGit prova = new KdoDotFileCommandGit();
-    Object res = rioKdo.CriaInstancia(args);
+    rioKdo.criaInstancia(args);
 
     assertTrue(res.getClass().equals(KdoDotFileCommandGit.class));
   }

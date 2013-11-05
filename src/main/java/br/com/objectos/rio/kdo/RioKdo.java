@@ -15,51 +15,38 @@
  */
 package br.com.objectos.rio.kdo;
 
-import br.com.objectos.rio.KdoInitOptions;
-
-import com.beust.jcommander.JCommander;
+import com.google.inject.Inject;
 
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 public class RioKdo {
 
-  /*  private final KdoDotFileCommandGit commandGit;
+  private final KdoDotFileCommandGit commandGit;
 
-    private final KdoDotFilesCommandMaven commandMaven;
+  private final KdoDotFilesCommandMaven commandMaven;
 
-    @Inject
-    public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
-      this.commandGit = commandGit;
-      this.commandMaven = commandMaven;
-    }
-  */
-
-  public static void main(String[] args) {
-    System.out.println(args.length);
-    // kdo dots --git
-    JCommander jc = new JCommander();
-    KdoInitOptions options = new KdoInitOptions();
-    jc.addCommand("--git", options.getOptionGit());
-
-    jc.parse(args[0]);
-
-    // , args[1], args[2], args[3]
-    System.out.println("classe retornada com sucesso" + "Parâmetro = " + jc.getParsedCommand());
-
-    Object classeretornada = CriaInstancia(args);
+  @Inject
+  public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
+    this.commandGit = commandGit;
+    this.commandMaven = commandMaven;
   }
 
-  public static Object CriaInstancia(String[] args) {
-    Object classe = new Object();
-
+  public void criaInstancia(String[] args) {
     if (args[0] == "--git") {
-      classe = new KdoDotFileCommandGit();
+      KdoDotFileCommandGit Git = criaInstanciaGit();
     }
     else if (args[0] == "--maven") {
-      classe = new KdoDotFilesCommandMaven();
+      KdoDotFilesCommandMaven mv = criaInstanciaMaven();
     }
-    return classe;
+  }
+
+  public KdoDotFileCommandGit criaInstanciaGit() {
+    return commandGit;
+  }
+
+  public KdoDotFilesCommandMaven criaInstanciaMaven() {
+    return commandMaven;
   }
 
 }

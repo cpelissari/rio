@@ -15,6 +15,8 @@
  */
 package br.com.objectos.rio;
 
+import br.com.objectos.comuns.cli.Options;
+
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
@@ -22,19 +24,15 @@ import com.beust.jcommander.Parameters;
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
 @Parameters(separators = "=")
-public class KdoInitOptions {
-  // deverá ser criado separadamente??
-  /*@Parameter(names = "rio kdo dots", required = true)
-  private final String prefix = "kdo rio dots";*/
-
+public class KdoInitOptions implements Options {
   @Parameter(names = "--git", description = "testando")
   private final String optionGit = "git";
 
   @Parameter(names = "--maven")
-  private final String optionMaven = "new KdoDotFileCommandMavent";
+  private final String optionMaven = "maven";
 
   @Parameter(names = "--eclipse")
-  private final String optionEclipse = "new KdoDotFileCommandEclipse";
+  private final String optionEclipse = "eclipse";
 
   public String getOptionGit() {
     return optionGit;
@@ -47,11 +45,5 @@ public class KdoInitOptions {
   public String getOptionEclipse() {
     return optionEclipse;
   }
-
-  /*  public String getPrefix() {
-      return prefix;
-    }*/
-
-  // criar métodos que recebam a "classpath"????
 
 }

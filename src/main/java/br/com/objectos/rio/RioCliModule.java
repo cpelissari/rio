@@ -18,7 +18,6 @@ package br.com.objectos.rio;
 import br.com.objectos.comuns.cli.AbstractCliModule;
 import br.com.objectos.comuns.cli.MainCommand;
 import br.com.objectos.rio.help.HelpCommandModule;
-import br.com.objectos.rio.kdo.KdoCommand;
 
 import com.google.inject.multibindings.MapBinder;
 
@@ -39,7 +38,6 @@ public class RioCliModule extends AbstractCliModule {
   }
   @Override
   protected void installCommands() {
-    // criar os módulos???
     install(new HelpCommandModule());
     install(new KdoCommandModule());
   }

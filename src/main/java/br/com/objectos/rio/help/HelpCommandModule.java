@@ -33,13 +33,9 @@ public class HelpCommandModule extends AbstractCommandModule {
     return Help.class;
   }
 
-  // o main e o name do commandKey não deveriam ser help, kdo??? será usado pelo
-  // CommandExecuteGuice - cria um map pra eliminar a parte do comando que tem
-  // kdo e executar somente o
-  // restante do parâmetro??
   @Override
   protected CommandKey getDefaultKey() {
-    return Help.WEB; // help, kdo???
+    return Help.WEB;
   }
 
   @Override

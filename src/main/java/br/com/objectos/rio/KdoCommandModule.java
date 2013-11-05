@@ -15,6 +15,9 @@
  */
 package br.com.objectos.rio;
 
+/**
+ * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
+ */
 import java.lang.annotation.Annotation;
 
 import br.com.objectos.comuns.cli.AbstractCommandModule;
@@ -25,9 +28,6 @@ import br.com.objectos.rio.kdo.Kdo;
 
 import com.google.inject.multibindings.MapBinder;
 
-/**
- * @author marcio.endo@objectos.com.br (Marcio Endo)
- */
 public class KdoCommandModule extends AbstractCommandModule {
 
   @Override
