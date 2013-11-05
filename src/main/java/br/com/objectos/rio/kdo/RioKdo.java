@@ -36,14 +36,15 @@ public class RioKdo {
   */
 
   public static void main(String[] args) {
-
+    System.out.println(args.length);
+    // kdo dots --git
     JCommander jc = new JCommander();
     KdoInitOptions options = new KdoInitOptions();
-    jc.addCommand("prefix", options.getPrefix());
-    // jc.addCommand("git", options.getOptionGit());
+    jc.addCommand("--git", options.getOptionGit());
 
-    jc.parse(args[0], args[1], args[2], args[3]);
+    jc.parse(args[0]);
 
+    // , args[1], args[2], args[3]
     System.out.println("classe retornada com sucesso" + "Parâmetro = " + jc.getParsedCommand());
 
     Object classeretornada = CriaInstancia(args);
@@ -52,10 +53,10 @@ public class RioKdo {
   public static Object CriaInstancia(String[] args) {
     Object classe = new Object();
 
-    if (args[3] == "--git") {
+    if (args[0] == "--git") {
       classe = new KdoDotFileCommandGit();
     }
-    else if (args[3] == "--maven") {
+    else if (args[0] == "--maven") {
       classe = new KdoDotFilesCommandMaven();
     }
     return classe;

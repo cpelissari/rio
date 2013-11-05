@@ -24,8 +24,8 @@ import com.beust.jcommander.Parameters;
 @Parameters(separators = "=")
 public class KdoInitOptions {
   // deverá ser criado separadamente??
-  @Parameter(names = "rio kdo dots", required = true)
-  private final String prefix = "kdo rio dots";
+  /*@Parameter(names = "rio kdo dots", required = true)
+  private final String prefix = "kdo rio dots";*/
 
   @Parameter(names = "--git", description = "testando")
   private final String optionGit = "git";
@@ -48,9 +48,9 @@ public class KdoInitOptions {
     return optionEclipse;
   }
 
-  public String getPrefix() {
-    return prefix;
-  }
+  /*  public String getPrefix() {
+      return prefix;
+    }*/
 
   // criar métodos que recebam a "classpath"????
 
