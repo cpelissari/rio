@@ -22,18 +22,10 @@ import com.google.inject.Inject;
 @Guice(modules = { RioTestModule.class })
 public class RioKdoTeste {
 
-  private final RioKdo rioKdo;
-
   @Inject
-  public RioKdoTeste(RioKdo rioKdo) {
-    this.rioKdo = rioKdo;
-  }
-
-  // teste -> verificar se está vazio? help(HelpCommand)?, instanciou a classe
-  // correta?
+  private RioKdo rioKdo;
 
   public void deve_instanciar_classe_correta() {
-
     String command = "kdo";
     String arg0 = "dots";
     String arg1 = "--git";
@@ -41,7 +33,7 @@ public class RioKdoTeste {
     String[] args = new String[] { command, arg0, arg1 };
 
     KdoDotFileCommandGit prova = new KdoDotFileCommandGit();
-    rioKdo.criaInstancia(args);
+    RioCommand res = rioKdo.criaInstancia(args);
 
     assertTrue(res.getClass().equals(KdoDotFileCommandGit.class));
   }

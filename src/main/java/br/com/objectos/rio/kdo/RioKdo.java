@@ -15,38 +15,28 @@
  */
 package br.com.objectos.rio.kdo;
 
-import com.google.inject.Inject;
 
 /**
  * @author cristiane.pelissari@objectos.com.br (Cristiane Iope Pelissari)
  */
 public class RioKdo {
 
-  private final KdoDotFileCommandGit commandGit;
-
-  private final KdoDotFilesCommandMaven commandMaven;
-
-  @Inject
-  public RioKdo(KdoDotFileCommandGit commandGit, KdoDotFilesCommandMaven commandMaven) {
-    this.commandGit = commandGit;
-    this.commandMaven = commandMaven;
+  public static void main(String[] args) {
+    RioCommand instancia = criaInstancia(args);
   }
 
-  public void criaInstancia(String[] args) {
-    if (args[0] == "--git") {
-      KdoDotFileCommandGit Git = criaInstanciaGit();
+  public static RioCommand criaInstancia(String[] args) {
+    RioCommand classe = null;
+
+    if (args[2] == "--git") {
+      classe = new KdoDotFileCommandGit();
+      return classe;
     }
-    else if (args[0] == "--maven") {
-      KdoDotFilesCommandMaven mv = criaInstanciaMaven();
+    else if (args[2] == "--maven") {
+      classe = new KdoDotFilesCommandMaven();
+      return classe;
     }
-  }
-
-  public KdoDotFileCommandGit criaInstanciaGit() {
-    return commandGit;
-  }
-
-  public KdoDotFilesCommandMaven criaInstanciaMaven() {
-    return commandMaven;
+    return classe;
   }
 
 }

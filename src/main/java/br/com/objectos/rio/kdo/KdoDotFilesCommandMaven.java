@@ -31,7 +31,7 @@ import com.google.common.io.Resources;
 /**
  * @author marcio.endo@objectos.com.br (Marcio Endo)
  */
-class KdoDotFilesCommandMaven {
+class KdoDotFilesCommandMaven implements RioCommand {
 
   public void execute(Global global) {
     try {
@@ -63,6 +63,10 @@ class KdoDotFilesCommandMaven {
   private File templateBaseDir(String resource) throws URISyntaxException {
     URL url = Resources.getResource(getClass(), resource);
     return new File(url.toURI());
+  }
+
+  @Override
+  public void execute() {
   }
 
 }

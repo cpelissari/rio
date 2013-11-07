@@ -22,7 +22,7 @@ import com.google.common.io.Resources;
 /**
  * @author marcos.piazzolla@objectos.com.br (Marcos Piazzolla)
  */
-class KdoDotFileCommandGit {
+class KdoDotFileCommandGit implements RioCommand {
 
   public void execute(Global global) {
     try {
@@ -54,6 +54,10 @@ class KdoDotFileCommandGit {
   private File templateBaseDir(String resource) throws URISyntaxException {
     URL url = Resources.getResource(getClass(), resource);
     return new File(url.toURI());
+  }
+
+  @Override
+  public void execute() {
   }
 
 }
