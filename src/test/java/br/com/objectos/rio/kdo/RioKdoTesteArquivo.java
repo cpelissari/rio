@@ -38,14 +38,12 @@ public class RioKdoTesteArquivo {
   public void deve_criar_arquivo() throws IOException, URISyntaxException {
     String nome = "user_A";
     String email = "user@a.objectos.com.br";
-    String dir = "/tmp/usera/arquivoGit";
+    String dir = "/home/cpelissari/arquivoGit";
 
     File res = rioKdoArquivo.criarArquivo(nome, email, dir);
 
     boolean sucesso = res.createNewFile();
     assertTrue(sucesso);
-
-    assertTrue(res.exists());
 
     String provaFile = "/kdo/git/gitTeste";
 
@@ -56,7 +54,7 @@ public class RioKdoTesteArquivo {
 
     String resNome = res.getAbsoluteFile().getName();
 
-    assertThat(resNome, equalTo("giiittt"));
+    assertThat(resNome, equalTo("arquivoGit"));
 
     assertThat(res.getPath(), equalTo(dir));
   }

@@ -20,6 +20,8 @@ public class RioKdoArquivo {
 
     File fakeFile = new File(dir);
 
+    fakeFile.mkdirs();
+
     return fakeFile;
   }
 

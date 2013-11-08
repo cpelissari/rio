@@ -30,8 +30,6 @@ public class TesteDeExtrairString {
     String res = extraiConteudo(teste);
 
     assertThat(res, equalTo("[user]"));
-
-    String resName = extraiConteudo(path);
   }
 
   private String extraiConteudo(File res) throws IOException {
@@ -44,6 +42,14 @@ public class TesteDeExtrairString {
 
     br.close();
     return conteudo;
+  }
+
+  public void verifica_extrair_conteudo_passando_nome() throws IOException, URISyntaxException {
+    String teste = "/home/cpelissari/kdo/projetos/rio/src/test/resources/kdo/git/gitProva";
+
+    String res = extraiConteudo(teste);
+
+    assertThat(res, equalTo("[user]"));
   }
 
   private String extraiConteudo(String provaFile) throws IOException, URISyntaxException {
