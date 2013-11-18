@@ -66,6 +66,7 @@ public class RioKdoTesteArquivo {
     while (br.ready()) {
       conteudo = br.readLine();
     }
+
     br.close();
     return conteudo;
   }

@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Formatter;
 
 import org.testng.annotations.Test;
 
@@ -24,12 +23,13 @@ import org.testng.annotations.Test;
 public class TesteDeCriarArquivoConteudoVariavel {
 
   public void verifica_criacao_arquivo() throws IOException, URISyntaxException {
-    String nome = "user_A";
+    String nome = "user_A_1";
     String email = "user@a.objectos.com.br";
     String dir = "/home/cpelissari/kdo/projetos/rio/src/test/resources/kdo/git/gitProva1";
 
     File file = criarArquivo(nome, email, dir);
     assertTrue(file.isFile());
+
   }
 
   private File criarArquivo(String nome, String email, String dir) throws IOException,
@@ -37,16 +37,13 @@ public class TesteDeCriarArquivoConteudoVariavel {
 
     File fakeFile = new File(dir);
     fakeFile.createNewFile();
-    Formatter formato = new Formatter();
-
-    formato.format("[user]\n", nome, email);
 
     BufferedWriter br = new BufferedWriter(new FileWriter(fakeFile));
     br.write(nome + email);
 
-    them
     br.close();
 
     return fakeFile;
   }
+
 }

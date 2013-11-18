@@ -19,8 +19,7 @@ public class RioKdoArquivo {
       URISyntaxException {
 
     File fakeFile = new File(dir);
-
-    fakeFile.mkdirs();
+    fakeFile.createNewFile();
 
     return fakeFile;
   }
